@@ -298,3 +298,32 @@
             document.getElementById('popupOverlay').style.display = "none";
         }
         listZones();
+        
+        const schoolList = ["deledao", "goguardian", "lightspeed", "linewize", "securly", ".edu/"];
+
+        function isBlockedDomain(url) {
+            const domain = new URL(url, location.origin).hostname + "/";
+            return schoolList.some(school => domain.includes(school));
+        }
+
+        const originalFetch = window.fetch;
+        window.fetch = function (url, options) {
+            if (isBlockedDomain(url)) {
+                console.warn(`lam`);
+                return Promise.reject(new Error("lam"));
+            }
+            return originalFetch.apply(this, arguments);
+        };
+
+        const originalOpen = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function (method, url) {
+            if (isBlockedDomain(url)) {
+                console.warn(`lam`);
+                return;
+            }
+            return originalOpen.apply(this, arguments);
+        };
+
+        HTMLCanvasElement.prototype.toDataURL = function (...args) {
+            return "";
+        };
