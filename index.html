@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
     <script>
         window.addEventListener('beforeunload', function (event) {
             event.preventDefault();
@@ -21,18 +24,8 @@
         gtag('config', 'G-WX5VS54ZDW');
     </script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-5521219086088837?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
-    <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5521219086088837"
-     data-ad-slot="5549138288"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-    <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
     <script src="https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/gnmath.js"></script>
     <meta charset="UTF-8">
-    <link rel="icon" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gn-math</title>
     <meta name="title" content="GN-Math">
@@ -45,7 +38,6 @@
     <meta name="twitter:url" content="https://gn-math.github.io/">
     <meta name="twitter:title" content="GN-Math">
     <meta name="twitter:description" content="Play unbl*cked games like Crazy Cattle 3D and DriveMad on GN-Math. Fast, free, no downloads—perfect for school or home.">
-    <meta name="keywords" content="unblocked games, games for school, browser games, chromebook games, no download games, html5 games, free unblocked games, gn-math, fun games at school, crazy cattle 3d, play crazy cattle 3d, crazy cattle 3d unblocked, crazy cattle, crazy cattle unblocked, play crazy cattle, crazy cattle online, crazy cattle 3d online">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-mode">
@@ -53,7 +45,7 @@
         <div class="header-content">
             <div class="logo">gn-math</div>
             <div class="search-container">
-                <input type="text" id="searchBar" placeholder="Search games..." oninput="filterZones()">
+                <input type="text" id="searchBar" placeholder="Search zones..." oninput="filterZones()">
                 <select id="sortOptions" onchange="sortZones()">
                     <option value="name">Name</option>
                     <option value="id">ID (Date)</option>
@@ -65,16 +57,32 @@
             </div>
         </div>
     </header>
+    <ins class="adsbygoogle"
+    style="display:block; text-align:center;"
+    data-ad-client="ca-pub-5521219086088837"
+    data-ad-slot="5549138288"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
 
     <main>
-        <div id="zoneCount">Loading games...</div>
-        <div id="container">Loading...</div>
+        <details id="featuredZonesWrapper" open>
+            <summary id="allZonesSummary" style="font-size: 1.2rem; font-weight: bold; cursor: pointer;">Featured Zones</summary>
+            <div id="featuredZones" class="zone-container"></div>
+        </details>
+        <br><hr><br>
+        <details id="allZonesWrapper" open>
+            <summary id="allSummary" style="font-size: 1.2rem; font-weight: bold; cursor: pointer;">All Zones</summary>
+            <div id="container">Loading...</div>
+        </details>
     </main>
 
     <div id="zoneViewer">
         <div class="zone-header">
             <div class="zone-title">
-                <h2 id="zoneName">Game</h2>
+                <h2 id="zoneName">zone</h2>
                 <span id="zoneId" style="display: none;"></span>
                 <a id="zoneAuthor" href="#" target="_blank">by Author</a>
             </div>
@@ -100,16 +108,31 @@
         </div>
     </div>
 
+    <ins class="adsbygoogle"
+    style="display:block; text-align:center;"
+    data-ad-client="ca-pub-5521219086088837"
+    data-ad-slot="5549138288"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
     <footer>
         <div class="footer-links">
             <a href="#" onclick="showContact(); return false;">Contact</a>
             <a href="#" onclick="loadPrivacy(); return false;">Privacy Policy</a>
             <a href="javascript:saveData()">Export Data</a>
-            <label for="importData" style="color: var(--primary-color); cursor: pointer;">Import Data</label>
+            <a href="#" onclick="document.getElementById('importData').click(); return false;">Import Data</a>
             <input type="file" id="importData" style="display: none;" onchange="loadData(event)">
         </div>
     </footer>
-
     <script src="script.js"></script>
+    <script>
+        const search = new URLSearchParams(window.location.search);
+        const privacy = search.get('privacy');
+        if (privacy) {
+            loadPrivacy();
+        }
+    </script>
 </body>
 </html>
